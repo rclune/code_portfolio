@@ -1,0 +1,59 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module r_aabb_to_aabb ! in 
+    interface  ! in :r_aabb_to_aabb
+        subroutine aabb_to_aabb(cstart,cend,vstart,vend,hstart,hend,tbm,tbm11,tbm13,tbm15,tbm17,tbm19,tbm21,tbm23,tbm25,tbm27,tbm29,tbm3,tbm31,tbm33,tbm35,tbm37,tbm39,tbm5,tbm7,tbm9,c0_coeff,c0_coeff_2,ca_coeff_b,ca_coeff_k,cb_coeff_b,cb_coeff_k,f_oo,f_ov,f_vo,f_vv,t4,tf_oo,tf_oo2,tf_oo3,tf_oo4,tf_oo5,tf_oo6,tf_oo7,tf_oo8,tf_oo9,to_4) ! in :r_aabb_to_aabb:aabb_to_aabb.F90
+            integer intent(in) :: cstart
+            integer intent(in) :: cend
+            integer intent(in) :: vstart
+            integer intent(in) :: vend
+            integer intent(in) :: hstart
+            integer intent(in) :: hend
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,vstart,vend) :: tbm
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,cstart,cend,vstart,vend,vstart,vend) :: tbm11
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,cstart,cend,vstart,vend,vstart,vend) :: tbm13
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1,vend-vstart+1,cend-cstart+1),intent(inout),depend(cstart,cend,vstart,vend,vstart,vend,cstart,cend) :: tbm15
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1,vend-vstart+1,cend-cstart+1),intent(inout),depend(cstart,cend,vstart,vend,vstart,vend,cstart,cend) :: tbm17
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,vstart,vend) :: tbm19
+            real(kind=8) dimension(vend-vstart+1,cend-cstart+1,cend-cstart+1,vend-vstart+1),intent(inout),depend(vstart,vend,cstart,cend,cstart,cend,vstart,vend) :: tbm21
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,cstart,cend,vstart,vend,vstart,vend) :: tbm23
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1),intent(inout),depend(cstart,cend,cstart,cend) :: tbm25
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,vstart,vend) :: tbm27
+            real(kind=8) dimension(vend-vstart+1,vend-vstart+1),intent(inout),depend(vstart,vend,vstart,vend) :: tbm29
+            real(kind=8) dimension(vend-vstart+1,cend-cstart+1),intent(inout),depend(vstart,vend,cstart,cend) :: tbm3
+            real(kind=8) intent(inout) :: tbm31
+            real(kind=8) intent(inout) :: tbm33
+            real(kind=8) intent(inout) :: tbm35
+            real(kind=8) intent(inout) :: tbm37
+            real(kind=8) dimension(vend-vstart+1,cend-cstart+1),intent(inout),depend(vstart,vend,cstart,cend) :: tbm39
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1,vend-vstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,vstart,vend,vstart,vend,vstart,vend) :: tbm5
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,vstart,vend) :: tbm7
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,cend-cstart+1),intent(inout),depend(cstart,cend,cstart,cend,vstart,vend,cstart,cend) :: tbm9
+            real(kind=8) intent(in) :: c0_coeff
+            real(kind=8) intent(in) :: c0_coeff_2
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(in),depend(cstart,cend,vstart,vend) :: ca_coeff_b
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(in),depend(cstart,cend,vstart,vend) :: ca_coeff_k
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(in),depend(cstart,cend,vstart,vend) :: cb_coeff_b
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(in),depend(cstart,cend,vstart,vend) :: cb_coeff_k
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1),intent(in),depend(cstart,cend,cstart,cend) :: f_oo
+            real(kind=8) dimension(cend-cstart+1,vend-vstart+1),intent(in),depend(cstart,cend,vstart,vend) :: f_ov
+            real(kind=8) dimension(vend-vstart+1,cend-cstart+1),intent(in),depend(vstart,vend,cstart,cend) :: f_vo
+            real(kind=8) dimension(vend-vstart+1,vend-vstart+1),intent(in),depend(vstart,vend,vstart,vend) :: f_vv
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,vend-vstart+1),intent(in),depend(cstart,cend,cstart,cend,vstart,vend,vstart,vend) :: t4
+            real(kind=8) intent(in) :: tf_oo
+            real(kind=8) intent(in) :: tf_oo2
+            real(kind=8) intent(in) :: tf_oo3
+            real(kind=8) intent(in) :: tf_oo4
+            real(kind=8) intent(in) :: tf_oo5
+            real(kind=8) intent(in) :: tf_oo6
+            real(kind=8) intent(in) :: tf_oo7
+            real(kind=8) intent(in) :: tf_oo8
+            real(kind=8) intent(in) :: tf_oo9
+            real(kind=8) dimension(cend-cstart+1,cend-cstart+1,vend-vstart+1,vend-vstart+1),intent(inout),depend(cstart,cend,cstart,cend,vstart,vend,vstart,vend) :: to_4
+        end subroutine aabb_to_aabb
+    end interface 
+end python module r_aabb_to_aabb
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
