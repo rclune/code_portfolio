@@ -6,4 +6,4 @@ Breif summary of the code included:
 
 2. Code contained in the internally_contracted_esmp2 folder: The pieces of code here are portions of a previous attempt at the project detailed in (1). The use of an internally contracted wave function led to linear dependencies that made the method unsuable. These pieces of code are written fully in Python, with some autogeneration tools used to convert some of the mathematical operations in to Fortran code to increase the computation speed. 
 
-3. Code contained in the TDHF/RPA folder: Code I wrote as part of an assignment for a graduate course I was taking in my first year at UC Berkeley that calculates the excited state energies of small molecules using time-dependent Hartree Fock.
+3. Code contained in the TDHF_RPA folder: Code I wrote as part of an assignment for a graduate course I was taking in my first year at UC Berkeley that calculates the excited state energies of small molecules using time-dependent Hartree Fock.
